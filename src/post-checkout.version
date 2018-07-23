@@ -1,0 +1,9 @@
+#!/bin/sh
+
+LOG=`git log -1 --oneline`
+
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+LOG=`expr match "$LOG" '\([a-z0-9]*\)\s'`
+
+echo $BRANCH/$LOG > files/version
